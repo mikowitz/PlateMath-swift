@@ -1,0 +1,6 @@
+framework module Pods_PlateMath {
+  umbrella header "Pods-PlateMath-umbrella.h"
+
+  export *
+  module * { export * }
+}

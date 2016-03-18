@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PlateMath" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,79 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YCo-uP-DNg">
+                                <rect key="frame" x="70" y="490" width="460" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0Q-Th-UsH" customClass="Incrementer" customModule="PlateMath" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="528" width="600" height="72"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFt-0Z-E6g">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="MTK-Yx-0d7"/>
+                                            <constraint firstAttribute="width" constant="72" id="x9N-uG-wpJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                        <state key="normal" title="-">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="minusButtonDown:" destination="BYZ-38-t0r" eventType="touchDown" id="SEh-E1-aYO"/>
+                                            <action selector="minusButtonUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aWA-bq-JDt"/>
+                                            <action selector="minusButtonUp:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="cBj-3A-Uca"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0a-5J-vX1">
+                                        <rect key="frame" x="528" y="0.0" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="9m2-k0-3Sy"/>
+                                            <constraint firstAttribute="width" constant="72" id="Im5-tg-Ic7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="plusButtonDown:" destination="BYZ-38-t0r" eventType="touchDown" id="IMw-RB-Otu"/>
+                                            <action selector="plusButtonUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8MM-8k-lPu"/>
+                                            <action selector="plusButtonUp:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="vRB-tk-DNA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="lFt-0Z-E6g" firstAttribute="top" secondItem="Q0Q-Th-UsH" secondAttribute="top" id="2fV-9G-5en"/>
+                                    <constraint firstItem="lFt-0Z-E6g" firstAttribute="leading" secondItem="Q0Q-Th-UsH" secondAttribute="leading" id="F8L-aP-QG9"/>
+                                    <constraint firstAttribute="bottom" secondItem="O0a-5J-vX1" secondAttribute="bottom" id="NQC-IB-PHO"/>
+                                    <constraint firstAttribute="bottom" secondItem="lFt-0Z-E6g" secondAttribute="bottom" id="pGm-ro-URJ"/>
+                                    <constraint firstItem="O0a-5J-vX1" firstAttribute="top" secondItem="Q0Q-Th-UsH" secondAttribute="top" id="sIu-J7-vAg"/>
+                                    <constraint firstAttribute="trailing" secondItem="O0a-5J-vX1" secondAttribute="trailing" id="uWc-6c-4Aj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.68181446335078533" green="0.68181446335078533" blue="0.68181446335078533" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="YCo-uP-DNg" secondAttribute="trailing" constant="50" id="EYr-AX-Oan"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Q0Q-Th-UsH" secondAttribute="bottom" id="Qre-38-hiV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YCo-uP-DNg" secondAttribute="bottom" constant="80" id="Skq-ky-Wiw"/>
+                            <constraint firstItem="YCo-uP-DNg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="lWx-HH-hBS"/>
+                            <constraint firstItem="YCo-uP-DNg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pYc-5a-ZPs"/>
+                            <constraint firstItem="Q0Q-Th-UsH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="sna-W7-hhi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q0Q-Th-UsH" secondAttribute="trailing" constant="-20" id="ydo-wu-w3K"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="incrementer" destination="Q0Q-Th-UsH" id="ItM-ke-tft"/>
+                        <outlet property="minusButton" destination="lFt-0Z-E6g" id="8Nx-np-7JC"/>
+                        <outlet property="plusButton" destination="O0a-5J-vX1" id="14X-id-ewP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="261" y="315"/>
         </scene>
     </scenes>
 </document>
